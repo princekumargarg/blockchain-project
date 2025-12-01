@@ -72,7 +72,7 @@ npm install
 PORT=5000
 MONGO_URI=mongodb://127.0.0.1:27017/counterdb
 RPC_URL=http://127.0.0.1:8545
-PRIVATE_KEY=0xdf57089febbacf7ba0bc227dafbffa9fc08a93fdc68e1e42411a14efcf23656e
+PRIVATE_KEY=your_key
 CONTRACT_ADDRESS=0x73511669fd4de447fed18bb79bafeac93ab7f31f
 ABI_PATH=../ignition/deployments/chain-31337/artifacts/CounterModule#Counter.json
 
