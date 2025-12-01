@@ -128,3 +128,20 @@ GET /api/counter/history
 ✔ Loads ABI from Ignition folder
 ✔ Watches for Increment events
 ✔ Stores events into MongoDB
+
+
+# Folder Structurre
+
+  blockchain-project/
+ ├── contracts/
+ ├── scripts/
+ ├── ignition/
+ ├── backend/
+ │   ├── src/
+ │   │   ├── routes/
+ │   │   ├── services/
+ │   │   ├── models/
+ │   │   └── server.ts
+ │   └── .env
+ └── README.md
+
