@@ -61,20 +61,33 @@ Contract artifacts are stored at:
 
 ignition/deployments/chain-31337/artifacts/CounterModule#Counter.json
 
-🔧 Backend Setup
+# 🔧 Backend Setup
 1️⃣ Move into backend folder
 cd backend
 
 2️⃣ Install dependencies
 npm install
 
-3️⃣ Create .env file
-PORT=5000
-MONGO_URI=mongodb://127.0.0.1:27017/counterdb
-RPC_URL=http://127.0.0.1:8545
-PRIVATE_KEY=your_key
-CONTRACT_ADDRESS=0x73511669fd4de447fed18bb79bafeac93ab7f31f
-ABI_PATH=../ignition/deployments/chain-31337/artifacts/CounterModule#Counter.json
+3️⃣ Create .env file 
+| PORT=5000 |
+| MONGO_URI=mongodb://127.0.0.1:27017/counterdb |
+| RPC_URL=http://127.0.0.1:8545 |
+| PRIVATE_KEY=your_key |
+| CONTRACT_ADDRESS=0x73511669fd4de447fed18bb79bafeac93ab7f31f |
+| ABI_PATH=../ignition/deployments/chain-31337/artifacts/CounterModule#Counter.json |
+
+
+## 🛠️ Tech Stack
+
+| Layer | Technology |
+|------|------------|
+| Smart Contract | Solidity 0.8.x |
+| Blockchain Tools | Hardhat v3 |
+| Backend | Node.js, Express, TypeScript |
+| DB | MongoDB |
+| Blockchain Interaction | ethers.js v6 |
+| Deployment | Hardhat Ignition |
+| Event Listener | ethers.js listener |
 
 4️⃣ Run Backend
  `npx ts-node src/server.ts`
