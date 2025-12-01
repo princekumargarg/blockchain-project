@@ -1,6 +1,4 @@
-# 🚀 Blockchain Counter Project  
-A complete **Backend + Blockchain Integration Project** built for the **Backend + Blockchain Developer Assessment**.  
-This project demonstrates a working stack of:
+# Backend - Blockchain Developer Assessment
 
 - **Solidity Smart Contract**
 - **Hardhat v3**
@@ -47,6 +45,4 @@ This project demonstrates a working stack of:
 | Event Listener | ethers.js listener |
 
 ---
-
-## 📁 Folder Structure
 
