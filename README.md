@@ -118,7 +118,7 @@ Body:
 
 3️⃣ Get transaction history
 
-GET /api/counter/history
+GET /api/counter/transactions
 
 
 -----------------
