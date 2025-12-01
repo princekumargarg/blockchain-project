@@ -72,14 +72,14 @@ npm install
 PORT=5000
 MONGO_URI=mongodb://127.0.0.1:27017/counterdb
 RPC_URL=http://127.0.0.1:8545
-PRIVATE_KEY=YOUR_LOCAL_HARDHAT_PRIVATE_KEY
-CONTRACT_ADDRESS=DEPLOYED_CONTRACT_ADDRESS
+PRIVATE_KEY=0xdf57089febbacf7ba0bc227dafbffa9fc08a93fdc68e1e42411a14efcf23656e
+CONTRACT_ADDRESS=0x73511669fd4de447fed18bb79bafeac93ab7f31f
 ABI_PATH=../ignition/deployments/chain-31337/artifacts/CounterModule#Counter.json
 
 4️⃣ Run Backend
-npx ts-node src/server.ts
+ `npx ts-node src/server.ts`
 
-📡 API Endpoints (Express)
+#📡 API Endpoints (Express)
 1️⃣ Increment by 1
 
 POST /api/counter/inc
@@ -107,20 +107,11 @@ Body:
 
 GET /api/counter/history
 
-🛰️ Event Listener
 
-The listener:
+-----------------
+ # 🛰️ Event Listener
 
 ✔ Connects to RPC
 ✔ Loads ABI from Ignition folder
 ✔ Watches for Increment events
 ✔ Stores events into MongoDB
-
-counter.on("Increment", async (value, event) => {
-  await CounterTx.create({
-    type: "incBy",
-    value,
-    txHash: event.log.transactionHash,
-    blockNumber: event.log.blockNumber,
-  });
-});
