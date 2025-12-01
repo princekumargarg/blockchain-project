@@ -45,4 +45,82 @@
 | Event Listener | ethers.js listener |
 
 ---
+ # 🧪 Deployment (Local Hardhat Network)
 
+Start hardhat local chain:
+
+npx hardhat node
+
+
+Deploy contract:
+
+npx hardhat run scripts/deploy.ts --network localhost
+
+
+Contract artifacts are stored at:
+
+ignition/deployments/chain-31337/artifacts/CounterModule#Counter.json
+
+🔧 Backend Setup
+1️⃣ Move into backend folder
+cd backend
+
+2️⃣ Install dependencies
+npm install
+
+3️⃣ Create .env file
+PORT=5000
+MONGO_URI=mongodb://127.0.0.1:27017/counterdb
+RPC_URL=http://127.0.0.1:8545
+PRIVATE_KEY=YOUR_LOCAL_HARDHAT_PRIVATE_KEY
+CONTRACT_ADDRESS=DEPLOYED_CONTRACT_ADDRESS
+ABI_PATH=../ignition/deployments/chain-31337/artifacts/CounterModule#Counter.json
+
+4️⃣ Run Backend
+npx ts-node src/server.ts
+
+📡 API Endpoints (Express)
+1️⃣ Increment by 1
+
+POST /api/counter/inc
+
+Response
+
+{
+  "type": "inc",
+  "value": 1,
+  "txHash": "...",
+  "blockNumber": 12345
+}
+
+2️⃣ Increment by value
+
+POST /api/counter/incBy
+
+Body:
+
+{
+  "value": 10
+}
+
+3️⃣ Get transaction history
+
+GET /api/counter/history
+
+🛰️ Event Listener
+
+The listener:
+
+✔ Connects to RPC
+✔ Loads ABI from Ignition folder
+✔ Watches for Increment events
+✔ Stores events into MongoDB
+
+counter.on("Increment", async (value, event) => {
+  await CounterTx.create({
+    type: "incBy",
+    value,
+    txHash: event.log.transactionHash,
+    blockNumber: event.log.blockNumber,
+  });
+});
